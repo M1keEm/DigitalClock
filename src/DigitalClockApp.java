@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -14,12 +16,13 @@ public class DigitalClockApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new FlowLayout());
-
         //Create a label to display the time
-        timeLabel = new JLabel();
+        timeLabel = new JLabel("",JLabel.CENTER);
         timeLabel.setOpaque(true);
         timeLabel.setBackground(Color.MAGENTA);
+
+        //Rectangle r = this.getBounds();
+        //timeLabel.setBounds(r.x+100, r.y+100, r.width-200, r.height-200);
 
         //Create a fancy font from the file BitFont.ttf
         try {
@@ -35,8 +38,7 @@ public class DigitalClockApp extends JFrame {
         }
 
         //Add the label to the panel
-        add(panel);
-        panel.add(timeLabel, SwingConstants.CENTER);
+        add(timeLabel);
 
         //Update the time regularly
         Timer timer = new Timer(1000, e -> updateTime());
@@ -48,32 +50,8 @@ public class DigitalClockApp extends JFrame {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String time = dateFormat.format(now);
-
         //Update the label
-//        resizeLabelToFitText();
         timeLabel.setText(time);
-    }
-    private void resizeLabelToFitText() {
-        Font font = timeLabel.getFont();
-        FontMetrics fontMetrics = timeLabel.getFontMetrics(font);
-
-        String text = timeLabel.getText();
-        int textWidth = fontMetrics.stringWidth(text);
-        int labelWidth = timeLabel.getWidth();
-        int labelHeight = timeLabel.getHeight();
-
-        //Adjust the font size to fit the label width
-        float fontSize = font.getSize() * ((float) labelWidth / textWidth);
-        Font newFont = font.deriveFont(fontSize);
-
-        //timeLabel.setFont(newFont);
-
-        //Center the text vertically and horizontally in the label
-        int yOffset = (labelHeight - fontMetrics.getHeight()) / 2;
-        int xOffset = (labelWidth - fontMetrics.stringWidth(text)) / 2;
-        timeLabel.setVerticalAlignment(SwingConstants.CENTER);
-        timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        timeLabel.setBorder(BorderFactory.createEmptyBorder(0, xOffset, 0, 0));
     }
 
     public static void main(String[] args) {
