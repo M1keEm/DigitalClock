@@ -16,49 +16,70 @@ public class DigitalClockApp extends JFrame {
 
         JPanel panel = new JPanel(new FlowLayout());
 
-        // Create a label to display the time
+        //Create a label to display the time
         timeLabel = new JLabel();
 
         //Create a fancy font from the file BitFont.ttf
         try {
-            //create the font to use and specify the size
+            //Create the font to use and specify the size
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            //register the font
+            //Register the font
             Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("BitFont.ttf"));
             myFont = myFont.deriveFont(Font.PLAIN, 100);
             ge.registerFont(myFont);
             timeLabel.setFont(myFont);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch(FontFormatException e) {
+        } catch (IOException | FontFormatException e) {
             e.printStackTrace();
         }
-        // Add the label to the panel
+
+        //Add the label to the panel
         add(panel);
         panel.add(timeLabel);
 
-        // Update the time regularly
+        //Update the time regularly
         Timer timer = new Timer(1000, e -> updateTime());
         timer.start();
     }
 
     private void updateTime() {
-        // Get the current time
+        //Get the current time
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String time = dateFormat.format(now);
 
-        // Update the label
+        //Update the label
+        resizeLabelToFitText();
         timeLabel.setText(time);
+    }
+    private void resizeLabelToFitText() {
+        Font font = timeLabel.getFont();
+        FontMetrics fontMetrics = timeLabel.getFontMetrics(font);
+
+        String text = timeLabel.getText();
+        int textWidth = fontMetrics.stringWidth(text);
+        int labelWidth = timeLabel.getWidth();
+        int labelHeight = timeLabel.getHeight();
+
+        //Adjust the font size to fit the label width
+        float fontSize = font.getSize() * ((float) labelWidth / textWidth);
+        Font newFont = font.deriveFont(fontSize);
+
+        //timeLabel.setFont(newFont);
+
+        //Center the text vertically and horizontally in the label
+        int yOffset = (labelHeight - fontMetrics.getHeight()) / 2;
+        int xOffset = (labelWidth - fontMetrics.stringWidth(text)) / 2;
+        timeLabel.setVerticalAlignment(SwingConstants.CENTER);
+        timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        timeLabel.setBorder(BorderFactory.createEmptyBorder(0, xOffset, 0, 0));
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             DigitalClockApp app = new DigitalClockApp();
             app.setVisible(true);
-            app.setPreferredSize(new Dimension(800,300));
+            app.setPreferredSize(new Dimension(800, 300));
             app.pack();
-
         });
     }
 }
