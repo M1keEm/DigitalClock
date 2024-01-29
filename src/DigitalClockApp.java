@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DigitalClockApp extends JFrame {
-    private JLabel timeLabel;
+    private final JLabel timeLabel;
 
     public DigitalClockApp() {
         // Set up the main frame
@@ -16,13 +18,24 @@ public class DigitalClockApp extends JFrame {
 
         // Create a label to display the time
         timeLabel = new JLabel();
-        timeLabel.setFont(new Font("Arial", Font.PLAIN, 24));
 
+        //Create a fancy font from the file BitFont.ttf
+        try {
+            //create the font to use and specify the size
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            //register the font
+            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("BitFont.ttf"));
+            myFont = myFont.deriveFont(Font.PLAIN, 100);
+            ge.registerFont(myFont);
+            timeLabel.setFont(myFont);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch(FontFormatException e) {
+            e.printStackTrace();
+        }
         // Add the label to the panel
-        panel.add(timeLabel);
-
-        // Add the panel to the frame
         add(panel);
+        panel.add(timeLabel);
 
         // Update the time regularly
         Timer timer = new Timer(1000, e -> updateTime());
@@ -43,7 +56,7 @@ public class DigitalClockApp extends JFrame {
         SwingUtilities.invokeLater(() -> {
             DigitalClockApp app = new DigitalClockApp();
             app.setVisible(true);
-            app.setPreferredSize(new Dimension(450, 300));
+            app.setPreferredSize(new Dimension(800,300));
             app.pack();
 
         });
