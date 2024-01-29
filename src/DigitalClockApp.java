@@ -18,6 +18,8 @@ public class DigitalClockApp extends JFrame {
 
         //Create a label to display the time
         timeLabel = new JLabel();
+        timeLabel.setOpaque(true);
+        timeLabel.setBackground(Color.MAGENTA);
 
         //Create a fancy font from the file BitFont.ttf
         try {
@@ -34,7 +36,7 @@ public class DigitalClockApp extends JFrame {
 
         //Add the label to the panel
         add(panel);
-        panel.add(timeLabel);
+        panel.add(timeLabel, SwingConstants.CENTER);
 
         //Update the time regularly
         Timer timer = new Timer(1000, e -> updateTime());
@@ -48,7 +50,7 @@ public class DigitalClockApp extends JFrame {
         String time = dateFormat.format(now);
 
         //Update the label
-        resizeLabelToFitText();
+//        resizeLabelToFitText();
         timeLabel.setText(time);
     }
     private void resizeLabelToFitText() {
