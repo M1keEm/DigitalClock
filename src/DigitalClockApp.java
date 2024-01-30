@@ -29,7 +29,7 @@ public class DigitalClockApp extends JFrame {
             //Create the font to use and specify the size
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             //Register the font
-            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("BitFont.ttf"));
+            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Mike\\IdeaProjects\\DigitalClock\\src\\BitFont.TTF"));
             myFont = myFont.deriveFont(Font.PLAIN, 100);
             ge.registerFont(myFont);
             timeLabel.setFont(myFont);
