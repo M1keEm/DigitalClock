@@ -15,19 +15,17 @@ public class DigitalClockApp extends JFrame {
         setLocationRelativeTo(null);
 
         //Create a label to display the time
-        timeLabel = new JLabel("",JLabel.CENTER);
+        timeLabel = new JLabel("", JLabel.CENTER);
         timeLabel.setOpaque(true);
         timeLabel.setBackground(Color.MAGENTA);
-
-        //Rectangle r = this.getBounds();
-        //timeLabel.setBounds(r.x+100, r.y+100, r.width-200, r.height-200);
+        timeLabel.setForeground(Color.BLACK);
 
         //Create a fancy font from the file BitFont.ttf
         try {
             //Create the font to use and specify the size
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             //Register the font
-            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File(System.getProperty("user.dir")+"/BitFont.ttf"));
+            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File(System.getProperty("user.dir") + "/src/BitFont.ttf"));
             myFont = myFont.deriveFont(Font.PLAIN, 100);
             ge.registerFont(myFont);
             timeLabel.setFont(myFont);
