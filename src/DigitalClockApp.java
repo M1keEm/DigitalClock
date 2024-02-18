@@ -27,7 +27,7 @@ public class DigitalClockApp extends JFrame {
             //Create the font to use and specify the size
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             //Register the font
-            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("./src/BitFont.ttf"));
+            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File(System.getProperty("user.dir")+"/BitFont.ttf"));
             myFont = myFont.deriveFont(Font.PLAIN, 100);
             ge.registerFont(myFont);
             timeLabel.setFont(myFont);
@@ -58,6 +58,7 @@ public class DigitalClockApp extends JFrame {
             app.setVisible(true);
             app.setPreferredSize(new Dimension(800, 300));
             app.pack();
+            app.getIconImages().add(new ImageIcon("./src/clock.jpg").getImage());
         });
     }
 }
