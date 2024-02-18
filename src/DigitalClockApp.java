@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -29,7 +27,7 @@ public class DigitalClockApp extends JFrame {
             //Create the font to use and specify the size
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             //Register the font
-            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Mike\\IdeaProjects\\DigitalClock\\src\\BitFont.TTF"));
+            Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File("./src/BitFont.ttf"));
             myFont = myFont.deriveFont(Font.PLAIN, 100);
             ge.registerFont(myFont);
             timeLabel.setFont(myFont);
