@@ -64,6 +64,8 @@ Once the application is running, you will see a window displaying the current ti
 
 - **Close the Application:** Click the close button (X) on the window to exit the application.
 
+---
+
 ## Customization
 
 Changing the font:
