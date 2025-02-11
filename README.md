@@ -46,10 +46,10 @@ To run the Digital Clock App, follow these steps:
    ```bash
    cd digital-clock-app
    
-5. **Download the custom font you've chosen**
+4. **Download the custom font you've chosen**
    Downlaod the BitFont.ttf file and place it in the root directory of the project.
    
-6. **Compile and run the application:**
+5. **Compile and run the application:**
    ```bash
    javac DigitalClockApp.java
    java DigitalClockApp
