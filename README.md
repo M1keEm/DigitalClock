@@ -54,6 +54,8 @@ To run the Digital Clock App, follow these steps:
    javac DigitalClockApp.java
    java DigitalClockApp
 
+---
+
 ## Usage
 
 Once the application is running, you will see a window displaying the current time in a large, resizable font.
@@ -79,6 +81,8 @@ You can customize the background and text colors by **modifying the following li
    timeLabel.setForeground(Color.BLACK);  // Change text color;
    ```
 
+---
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
@@ -91,9 +95,13 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 Please ensure your code follows the existing style and includes appropriate documentation.
 
+---
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
 
 ## Contact
 
