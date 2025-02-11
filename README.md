@@ -40,19 +40,19 @@ To run the Digital Clock App, follow these steps:
 
 2. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/digital-clock-app.git
+   git clone https://github.com/M1keEm/DigitalClock.git
    
 3. **Navigate to the project directory:**
    ```bash
-   cd digital-clock-app
+   cd DigitalClock
    
 4. **Download the custom font you've chosen**
    Downlaod the BitFont.ttf file and place it in the root directory of the project.
    
 5. **Compile and run the application:**
    ```bash
-   javac DigitalClockApp.java
-   java DigitalClockApp
+   javac DigitalClock.java
+   java DigitalClock
 
 ---
 
