@@ -37,3 +37,44 @@ To run the Digital Clock App, follow these steps:
    Make sure you have Java installed on your system. You can check by running:
    ```bash
    java -version
+
+2. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/digital-clock-app.git
+   
+3. **Navigate to the project directory:**
+   ```bash
+   cd digital-clock-app
+   
+5. **Download the custom font you've chosen**
+   Downlaod the BitFont.ttf file and place it in the root directory of the project.
+   
+6. **Compile and run the application:**
+   ```bash
+   javac DigitalClockApp.java
+   java DigitalClockApp
+
+## Usage
+
+Once the application is running, you will see a window displaying the current time in a large, resizable font.
+
+- **Resize the Window:** Drag the edges of the window to resize it. The font size will automatically adjust to fit the new dimensions.
+
+- **Close the Application:** Click the close button (X) on the window to exit the application.
+
+## Customization
+
+Changing the font:
+
+1. **Replace the BitFont.ttf file with your desired TrueType font file.**
+2. **Update the font loading code in the DigitalClockApp constructor:**
+   ```java
+   Font myFont = Font.createFont(Font.TRUETYPE_FONT, new File(System.getProperty("user.dir") + "/YourFontFile.ttf"));
+   
+Changing the colors:
+
+You can customize the background and text colors by **modifying the following lines in the DigitalClockApp constructor:**
+```java
+timeLabel.setBackground(Color.MAGENTA); // Change background color
+timeLabel.setForeground(Color.BLACK);  // Change text color
+
