@@ -11,6 +11,7 @@ A simple and elegant digital clock application built using Java Swing. This appl
 ## Table of Contents
 
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Customization](#customization)
@@ -26,6 +27,12 @@ A simple and elegant digital clock application built using Java Swing. This appl
 - **Dynamic Font Resizing:** Automatically adjusts the font size when the window is resized.
 - **Custom Font:** Uses a custom TrueType font (`BitFont.ttf`) for a unique look.
 - **Sleek Design:** Minimalist and visually appealing user interface.
+
+---
+
+## Screenshots
+
+![Screenshot 1](screenshots/digital-clock.png)  
 
 ---
 
